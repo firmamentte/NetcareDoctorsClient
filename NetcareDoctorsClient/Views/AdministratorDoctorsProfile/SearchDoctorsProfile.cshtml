@@ -1,0 +1,35 @@
+﻿@model NetcareDoctorsClient.Models.DoctorProfile.SearchDoctorsProfileModel
+
+<div class="popup-form-medium">
+    <form id="formSearchDoctorsProfileForm" asp-antiforgery="true">
+        <fieldset>
+            <h1>SEARCH DOCTORS PROFILE</h1>
+            <select asp-for="TitleName" class="drop-down-list" asp-items="ViewBag.Titles"></select>
+            <input asp-for="FirstName" class="text-box" placeholder="First Name (Optional)" />
+            <input asp-for="LastName" class="text-box" placeholder="Last Name (Optional)" />
+            <input asp-for="HpcsaNo" class="text-box" placeholder="HPCSA No. (Optional)" />
+            <input asp-for="IdNo" class="text-box" placeholder="ID No. (Optional)" />
+            <select asp-for="DisciplineName" class="drop-down-list" asp-items="ViewBag.Disciplines"></select>
+            <select asp-for="ProvinceName" class="drop-down-list" asp-items="ViewBag.Provinces"></select>
+            <div id="messageSearchDoctorsProfile" class="message-label"></div>
+            <nav>
+                <table id="navSearchDoctorsProfile" class="nav-table">
+                    <tr>
+                        <td>
+                            <input type="button" value="SEARCH" class="button" onclick="administratorSubmitSearchDoctorsProfile()" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="nav-separator"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" value="CANCEL" class="button" onclick="hidePopupForm()" />
+                        </td>
+                    </tr>
+                </table>
+                <input id="progressBarSearchDoctorsProfile" type="button" value="WORKING..." class="button-progress-bar" disabled="disabled" />
+            </nav>
+        </fieldset>
+    </form>
+</div>

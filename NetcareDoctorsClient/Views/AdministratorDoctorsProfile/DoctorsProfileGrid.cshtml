@@ -1,0 +1,36 @@
+﻿@model List<NetcareDoctorsClient.Models.DoctorProfile.DoctorsProfileGridModel>
+
+@if ((Model != null) && (Model.Any()))
+{
+    <div class="grid-view">
+        @foreach (var item in Model.OrderBy(doctorProfile => doctorProfile.FirstName)
+                                   .ThenBy(doctorProfile => doctorProfile.LastName))
+        {
+            <div id="@item.DoctorProfileId" class="gv-row">
+                <div class="gv-row-line">
+                    <span class="gv-value">@item.IdNo</span>
+                    <span class="gv-value">@item.TitleName.</span>
+                    <span class="gv-value">@item.FirstName</span>
+                    <span class="gv-value">@item.LastName</span>
+                </div>
+                <div class="gv-row-line">
+                   <span class="gv-label">HPCSA No.</span><span class="gv-value">(@item.HpcsaNo)</span>
+                    <label class="gv-separator">|</label>
+                     <span class="gv-value">@item.DisciplineName</span>
+                     <label class="gv-separator">|</label>
+                     <span class="gv-value">@item.ProvinceName</span>
+                </div>
+                <div class="gv-nav">
+                    <input type="button" class="grid-action-link-nav" value="VIEW | EDIT" onclick='editDoctorProfile("@item.DoctorProfileId")' />
+                    <input type="button" class="grid-action-link-nav" value="DELETE"
+                    onclick='yesNoConfirmation("AdministratorDoctorsProfile","DeleteDoctorProfile","@item.DoctorProfileId","Delete Doctor Profile?")' />
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    { await Html.RenderPartialAsync("_GridViewMessage"); }
+}
+<div class="grid-bottom-line"></div>

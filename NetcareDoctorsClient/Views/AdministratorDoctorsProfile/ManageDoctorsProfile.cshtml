@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "MANAGE DOCTORS PROFILE";
+
+    ViewBag.GridViewMessage = "Please use the buttons above to search or add Doctors Profile...";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/js/DoctorsProfile/administrator-doctors-profile.js" asp-append-version="true"></script>
+
+<div class="div-search-create-buttons">
+    <table class="table-search-create-buttons">
+        <tr>
+            <td>
+                <input type="button" class="button" value="SEARCH" onclick="administratorSearchDoctorsProfile()" />
+            </td>
+            <td>
+                <input type="button" class="button" value="ADD" onclick="createDoctorProfile()" />
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="divDoctorsProfileGrid">
+    @{ await Html.RenderPartialAsync("DoctorsProfileGrid");}
+</div>

@@ -1,0 +1,35 @@
+﻿@model NetcareDoctorsClient.Models.DoctorProfile.CreateDoctorProfileModel
+
+<div class="popup-form-medium">
+    <form id="formCreateDoctorProfileForm" asp-antiforgery="true">
+        <fieldset>
+            <h1>CREATE DOCTOR PROFILE</h1>
+            <select asp-for="TitleName" class="drop-down-list" asp-items="ViewBag.Titles"></select>
+            <input asp-for="FirstName" class="text-box" placeholder="First Name" />
+            <input asp-for="LastName" class="text-box" placeholder="Last Name" />
+            <input asp-for="HpcsaNo" class="text-box" placeholder="HPCSA No." />
+            <input asp-for="IdNo" class="text-box" placeholder="ID No." />
+            <select asp-for="DisciplineName" class="drop-down-list" asp-items="ViewBag.Disciplines"></select>
+            <select asp-for="ProvinceName" class="drop-down-list" asp-items="ViewBag.Provinces"></select>
+            <div id="messageCreateDoctorProfile" class="message-label"></div>
+            <nav>
+                <table id="navCreateDoctorProfile" class="nav-table">
+                    <tr>
+                        <td>
+                            <input type="button" value="SAVE" class="button" onclick="submitCreateDoctorProfile()" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="nav-separator"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" value="CANCEL" class="button" onclick="hidePopupForm()" />
+                        </td>
+                    </tr>
+                </table>
+                <input id="progressBarCreateDoctorProfile" type="button" value="WORKING..." class="button-progress-bar" disabled="disabled" />
+            </nav>
+        </fieldset>
+    </form>
+</div>
